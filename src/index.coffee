@@ -1,4 +1,5 @@
 
+
 class BindingsDecorator
 
   ###
@@ -31,7 +32,7 @@ class BindingsDecorator
     if typeof to is "function" 
       oldTo = to
       to = () =>
-        oldTo.apply @view, arguments
+        oldTo.apply @target, arguments
 
     if to.to
       options = to
