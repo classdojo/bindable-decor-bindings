@@ -1,11 +1,11 @@
 
-class BindingsDecorator extends BaseViewDecorator
+class BindingsDecorator
 
   ###
   ###
 
   constructor: (@target, options) ->
-    @bindings = if typeof @options is "object" then @options else undefined
+    @bindings = if typeof options is "object" then options else undefined
 
   ###
   ###
