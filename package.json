@@ -1,0 +1,17 @@
+{
+  "name": "bindable-decor-bindings",
+  "version": "0.0.1",
+  "description": "bindable-decor-bindings =======================",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/classdojo/bindable-decor-bindings.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "38d103ba25d6cecce43cf94a0ba237b1cfea1c75"
+}
