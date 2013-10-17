@@ -1,6 +1,6 @@
 {
   "name": "bindable-decor-bindings",
-  "version": "0.0.3g",
+  "version": "0.0.4",
   "description": "bindable-decor-bindings =======================",
   "main": "./lib/index.js",
   "scripts": {
@@ -15,6 +15,7 @@
   "readmeFilename": "README.md",
   "gitHead": "38d103ba25d6cecce43cf94a0ba237b1cfea1c75",
   "dependencies": {
-    "traverse": "~0.6.6"
+    "traverse": "~0.6.6",
+    "disposable": "0.0.5"
   }
 }

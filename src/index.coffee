@@ -1,4 +1,4 @@
-
+disposable = require "disposable"
 
 class BindingsDecorator
 
@@ -7,12 +7,22 @@ class BindingsDecorator
 
   constructor: (@target, options) ->
     @bindings = if typeof options is "object" then options else undefined
+    @_disposable = disposable.create()
+    @target.once "dispose", @dispose
 
   ###
   ###
 
   bind: () =>
     @_setupExplicitBindings() if @bindings
+
+  ###
+  ###
+
+  dispose: () =>
+    @_disposable.dispose()
+    @_disposable = undefined
+
 
   ###
    explicit bindings are properties from & to properties of the view controller
@@ -41,7 +51,7 @@ class BindingsDecorator
 
 
     options.property = property
-    @target.bind(options).now()
+    @_disposable.add @target.bind(options).now()
 
 
 module.exports = (event) ->
