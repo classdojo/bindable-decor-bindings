@@ -56,7 +56,7 @@ class BindingsDecorator
 
 module.exports = (event) ->
   priority: "load"
-  options: (target) -> target.bindings
+  getOptions: (target) -> target.bindings
   decorate: (target, options) ->
     decor = new BindingsDecorator target, options
 
