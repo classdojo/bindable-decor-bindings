@@ -49,9 +49,7 @@ class BindingsDecorator
     else
       options = { to: to }
 
-
-    options.property = property
-    @_disposable.add @target.bind(options).now()
+    @_disposable.add @target.bind(property, options).now()
 
 
 module.exports = (event) ->
