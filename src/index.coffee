@@ -21,7 +21,6 @@ class BindingsDecorator
 
   dispose: () =>
     @_disposable.dispose()
-    @_disposable = undefined
 
 
   ###
@@ -34,8 +33,8 @@ class BindingsDecorator
 
   ###
   ###
-
   _setupBinding: (property, to) ->
+
 
     options = {}
 
