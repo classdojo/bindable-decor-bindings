@@ -21,7 +21,6 @@ class BindingsDecorator
 
   dispose: () =>
     @_disposable.dispose()
-    @_disposable = undefined
 
 
   ###
