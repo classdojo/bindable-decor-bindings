@@ -9,7 +9,7 @@ class BindingsDecorator
     @bindings = if typeof options is "object" then options else undefined
     @_disposable = disposable.create()
     @target.once "dispose", @dispose
-    @target.bind "visible", @_onVisibilityChange
+    @target.on "change:visible", @_onVisibilityChange
 
   ###
   ###
