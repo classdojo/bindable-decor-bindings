@@ -31,7 +31,6 @@ class BindingsDecorator
   ###
 
   dispose: () =>
-    console.log "D", @target.path()
     for binding in @_bindings
       binding.dispose()
     @_bindings = []
@@ -47,7 +46,6 @@ class BindingsDecorator
   ###
 
   resume: () -> 
-    console.log @_bindings.length
     for binding in @_bindings
       binding.resume().now()
 
