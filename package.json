@@ -1,6 +1,6 @@
 {
   "name": "bindable-decor-bindings",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "bindable-decor-bindings =======================",
   "main": "./lib/index.js",
   "scripts": {

@@ -7,7 +7,7 @@ class BindingsDecorator
 
   constructor: (@target, options) ->
     @bindings = if typeof options is "object" then options else undefined
-    @_disposable = disposable.create()
+    @_bindings = []
     @target.once "dispose", @dispose
     @target.on "change:visible", @_onVisibilityChange
 
@@ -23,16 +23,33 @@ class BindingsDecorator
 
   _onVisibilityChange: (value) =>
     if value
-      @bind()
+      @resume()
     else
-      @dispose()
+      @pause()
 
   ###
   ###
 
   dispose: () =>
-    @_disposable.dispose()
+    console.log "D", @target.path()
+    for binding in @_bindings
+      binding.dispose()
+    @_bindings = []
 
+  ###
+  ###
+
+  pause: () ->
+    for binding in @_bindings
+      binding.pause()
+
+  ###
+  ###
+
+  resume: () -> 
+    console.log @_bindings.length
+    for binding in @_bindings
+      binding.resume().now()
 
   ###
    explicit bindings are properties from & to properties of the view controller
@@ -40,6 +57,7 @@ class BindingsDecorator
 
   _setupExplicitBindings: () ->
     bindings = @bindings
+    @_bindings = []
     @_setupBinding key, bindings[key] for key of bindings
 
   ###
@@ -59,7 +77,7 @@ class BindingsDecorator
     else
       options = { to: to }
 
-    @_disposable.add @target.bind(property, options).now()
+    @_bindings.push @target.bind(property, options).now()
 
 
 module.exports = (event) ->
